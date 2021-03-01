@@ -1,0 +1,31 @@
+{
+    "name": "Skippity Skip",
+    "description": "FCC Extension",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "300": "/images/logo.png"
+        }
+    },
+    "icons": {
+        "300": "/images/logo.png"
+    }
+}
