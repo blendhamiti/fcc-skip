@@ -56,11 +56,21 @@ runScriptButton.addEventListener("click", () => {
 });
 
 function getNextChallenge(data, url) {
+    let nextChallenge;
+
+    // get indexes of current topic, course, challenge
     const topicIndex = data.findIndex((topic) => topic.title === url[url.length - 3]);
     if (topicIndex < 0) return null;
     const courseIndex = data[topicIndex].courses.findIndex((course) => course.title === url[url.length - 2]);
     if (courseIndex < 0) return null;
     const challengeIndex = data[topicIndex].courses[courseIndex].challenges.findIndex((challenge) => challenge === url[url.length - 1]);
     if (challengeIndex < 0) return null;
-    return (data[topicIndex].courses[courseIndex].challenges[challengeIndex + 1]) ? data[topicIndex].courses[courseIndex].challenges[challengeIndex + 1] : null;
+
+    // if current challenge is the last challenge on the list, return the first challenge
+    if (challengeIndex == data[topicIndex].courses[courseIndex].challenges.length - 1)
+        nextChallenge = data[topicIndex].courses[courseIndex].challenges[0];
+    else
+        nextChallenge = data[topicIndex].courses[courseIndex].challenges[challengeIndex + 1];
+
+    return (nextChallenge) ? nextChallenge : null;
 }
