@@ -1,5 +1,5 @@
 # Skippity-Skip
-Chrome plugin that allows easy and quick skipping of freecodecamp.org challenges. 
+Chrome extension that allows easy and quick skipping of freecodecamp.org challenges. 
 
 ## Installation
 Go to page `chrome://extensions` and enable Developer mode. Then, click `Load unpacked` and select the folder that contains the extension files.
